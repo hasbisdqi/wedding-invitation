@@ -43,7 +43,42 @@ Bun.serve({
       return new Response(null, { headers: corsHeaders });
     }
 
-    // Public API: Get approved wishes for guest view
+    // Check authentication for admin endpoints & dashboard
+    const isAdminRoute = url.pathname === "/dashboard" || 
+                         url.pathname === "/dashboard/" || 
+                         url.pathname.startsWith("/api/admin/");
+
+    if (isAdminRoute) {
+      const authHeader = req.headers.get("authorization");
+      if (!authHeader || !authHeader.startsWith("Basic ")) {
+        return new Response("Unauthorized: Dashboard memerlukan autentikasi login.", {
+          status: 401,
+          headers: {
+            "WWW-Authenticate": 'Basic realm="Undangan Digital Admin Dashboard"',
+            ...corsHeaders,
+          },
+        });
+      }
+
+      const base64Credentials = authHeader.split(" ")[1];
+      const credentials = Buffer.from(base64Credentials, "base64").toString("utf-8");
+      const [username, password] = credentials.split(":");
+
+      const validUser = process.env.ADMIN_USER || "admin";
+      const validPass = process.env.ADMIN_PASS || "undangan2026";
+
+      if (username !== validUser || password !== validPass) {
+        return new Response("Unauthorized: Username atau password salah.", {
+          status: 401,
+          headers: {
+            "WWW-Authenticate": 'Basic realm="Undangan Digital Admin Dashboard"',
+            ...corsHeaders,
+          },
+        });
+      }
+    }
+
+    // Public API: Get approved wishes for wedding page
     if (url.pathname === "/api/wishes" && req.method === "GET") {
       const rows = db.query("SELECT id, name, presence, message, created_at FROM rsvps WHERE is_approved = 1 ORDER BY id DESC").all();
       return Response.json(rows, { headers: corsHeaders });

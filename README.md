@@ -21,5 +21,8 @@ Pastikan [Bun](https://bun.sh) sudah terpasang:
 bun run server.ts
 ```
 Buka browser:
-- Undangan: `http://localhost:3020`
-- Dashboard: `http://localhost:3020/dashboard`
+- Undangan Publik: `http://localhost:3020`
+- Dashboard Admin: `http://localhost:3020/dashboard`
+  - **Username:** `admin`
+  - **Password:** `undangan2026` (dapat diubah via env `ADMIN_USER` & `ADMIN_PASS`)
+
