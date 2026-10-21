@@ -120,6 +120,24 @@ Bun.serve({
       }
     }
 
+    // GitHub Webhook / Auto-deploy endpoint
+    if (url.pathname === "/api/deploy" && (req.method === "POST" || req.method === "GET")) {
+      try {
+        console.log("Received deploy trigger, pulling latest changes...");
+        const proc = Bun.spawn(["git", "pull", "origin", "main"], {
+          cwd: import.meta.dir,
+          stdout: "pipe",
+          stderr: "pipe",
+        });
+        const output = await new Response(proc.stdout).text();
+        const error = await new Response(proc.stderr).text();
+        console.log("Git pull output:", output, error);
+        return Response.json({ success: true, output, error }, { headers: corsHeaders });
+      } catch (err: any) {
+        return Response.json({ error: err.message }, { status: 500, headers: corsHeaders });
+      }
+    }
+
     // Serve Dashboard HTML
     if (url.pathname === "/dashboard" || url.pathname === "/dashboard/") {
       const dashboardHtml = await Bun.file(join(import.meta.dir, "dashboard.html")).text();
