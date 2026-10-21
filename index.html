@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Wedding of Aris & Widya | Dimas & Winda</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Great+Vibes&family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Great+Vibes&family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --bg-cream: #faf5f0;
@@ -38,6 +41,10 @@
       position: relative;
     }
 
+    .ampersand {
+      margin: 0 8px;
+    }
+
     /* Falling Sakura Petals Animation */
     .sakura-container {
       position: fixed;
@@ -63,6 +70,7 @@
         top: -10%;
         transform: translateX(0) rotate(0deg);
       }
+
       100% {
         top: 105%;
         transform: translateX(120px) rotate(360deg);
@@ -74,7 +82,7 @@
       max-width: 540px;
       margin: 0 auto;
       background: var(--bg-cream);
-      box-shadow: 0 0 50px rgba(0,0,0,0.12);
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.12);
       min-height: 100vh;
       position: relative;
       overflow: hidden;
@@ -101,11 +109,15 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
+
     .music-btn.playing {
       animation: spin 5s linear infinite;
     }
+
     @keyframes spin {
-      100% { transform: rotate(360deg); }
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
     /* Cover / Hero */
@@ -167,7 +179,9 @@
       justify-content: center;
       gap: 16px;
     }
-    .ampersand-divider::before, .ampersand-divider::after {
+
+    .ampersand-divider::before,
+    .ampersand-divider::after {
       content: "";
       width: 40px;
       height: 1px;
@@ -200,10 +214,22 @@
       transition: all 0.3s ease;
       animation: pulseBtn 2s infinite;
     }
+
     @keyframes pulseBtn {
-      0% { transform: scale(1); box-shadow: 0 4px 15px rgba(184, 50, 39, 0.3); }
-      50% { transform: scale(1.04); box-shadow: 0 8px 24px rgba(184, 50, 39, 0.5); }
-      100% { transform: scale(1); box-shadow: 0 4px 15px rgba(184, 50, 39, 0.3); }
+      0% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(184, 50, 39, 0.3);
+      }
+
+      50% {
+        transform: scale(1.04);
+        box-shadow: 0 8px 24px rgba(184, 50, 39, 0.5);
+      }
+
+      100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(184, 50, 39, 0.3);
+      }
     }
 
     /* Common Section Styles */
@@ -222,6 +248,7 @@
       margin-bottom: 24px;
       position: relative;
     }
+
     .section-title::after {
       content: "🌸";
       display: block;
@@ -238,6 +265,7 @@
       border: 1px solid var(--border-pink);
       text-align: center;
     }
+
     .ayat-bismillah {
       font-family: 'Cinzel', serif;
       font-size: 1.1rem;
@@ -245,6 +273,7 @@
       color: var(--japanese-red);
       margin-bottom: 16px;
     }
+
     .ayat-quote {
       font-size: 0.95rem;
       line-height: 1.7;
@@ -252,6 +281,7 @@
       font-style: italic;
       margin-bottom: 16px;
     }
+
     .ayat-surah {
       font-weight: 700;
       color: var(--gold);
@@ -265,19 +295,23 @@
       border-radius: 20px;
       padding: 28px 20px;
       border: 1px solid var(--border-pink);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
       margin-bottom: 28px;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
+
     .mempelai-box::before {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 4px;
       background: linear-gradient(90deg, #f497a6, var(--japanese-red), #f497a6);
     }
+
     .couple-subheading {
       font-family: 'Cinzel', serif;
       font-size: 0.9rem;
@@ -287,9 +321,11 @@
       margin-bottom: 18px;
       font-weight: 700;
     }
+
     .person-card {
       margin: 18px 0;
     }
+
     .person-fullname {
       font-family: 'Marcellus', serif;
       font-size: 1.35rem;
@@ -297,11 +333,13 @@
       font-weight: 700;
       margin-bottom: 4px;
     }
+
     .parent-info {
       font-size: 0.88rem;
       color: var(--text-muted);
       line-height: 1.5;
     }
+
     .love-connector {
       font-family: 'Great Vibes', cursive;
       font-size: 2.2rem;
@@ -316,20 +354,23 @@
       gap: 10px;
       margin: 24px 0;
     }
+
     .count-box {
       background: white;
       border: 1px solid var(--border-pink);
       border-radius: 12px;
       padding: 12px 6px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
     }
+
     .count-num {
       font-family: 'Cinzel', serif;
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--japanese-red);
     }
+
     .count-label {
       font-size: 0.72rem;
       text-transform: uppercase;
@@ -345,9 +386,10 @@
       border: 1px solid var(--border-pink);
       padding: 24px;
       margin-bottom: 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
       position: relative;
     }
+
     .event-header {
       display: flex;
       align-items: center;
@@ -356,12 +398,14 @@
       padding-bottom: 12px;
       margin-bottom: 14px;
     }
+
     .event-title {
       font-family: 'Marcellus', serif;
       font-size: 1.25rem;
       color: var(--japanese-red);
       font-weight: 700;
     }
+
     .event-time-badge {
       background: var(--soft-pink);
       color: var(--japanese-red);
@@ -370,6 +414,7 @@
       padding: 4px 10px;
       border-radius: 20px;
     }
+
     .event-desc {
       font-size: 0.92rem;
       line-height: 1.6;
@@ -383,8 +428,9 @@
       border: 1px solid var(--border-pink);
       padding: 22px;
       margin-bottom: 16px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
     }
+
     .turut-cat-title {
       font-family: 'Marcellus', serif;
       font-size: 1.05rem;
@@ -397,6 +443,7 @@
       align-items: center;
       gap: 6px;
     }
+
     .turut-item {
       display: flex;
       justify-content: space-between;
@@ -405,13 +452,16 @@
       font-size: 0.88rem;
       border-bottom: 1px dotted #f3e5e7;
     }
+
     .turut-item:last-child {
       border-bottom: none;
     }
+
     .turut-name {
       font-weight: 600;
       color: #332a2c;
     }
+
     .turut-role {
       font-size: 0.8rem;
       color: #8c7276;
@@ -425,8 +475,9 @@
       border: 1px solid var(--border-pink);
       padding: 28px 20px;
       text-align: center;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
     }
+
     .qr-container {
       width: 170px;
       height: 170px;
@@ -439,6 +490,7 @@
       align-items: center;
       justify-content: center;
     }
+
     .btn-maps {
       display: inline-flex;
       align-items: center;
@@ -454,6 +506,7 @@
       box-shadow: 0 6px 18px rgba(184, 50, 39, 0.3);
       transition: all 0.3s;
     }
+
     .btn-maps:hover {
       background: #96261d;
       transform: translateY(-2px);
@@ -465,12 +518,14 @@
       border-radius: 18px;
       padding: 24px;
       border: 1px solid var(--border-pink);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
     }
+
     .form-group {
       margin-bottom: 14px;
       text-align: left;
     }
+
     .form-group label {
       display: block;
       font-size: 0.85rem;
@@ -478,6 +533,7 @@
       margin-bottom: 6px;
       color: var(--text-dark);
     }
+
     .form-control {
       width: 100%;
       padding: 12px 14px;
@@ -488,9 +544,11 @@
       outline: none;
       transition: border 0.2s;
     }
+
     .form-control:focus {
       border-color: var(--japanese-red);
     }
+
     .btn-submit {
       width: 100%;
       padding: 12px;
@@ -513,18 +571,20 @@
       flex-direction: column;
       gap: 10px;
     }
+
     .wish-bubble {
-      background: #faf3f4;
       border-radius: 12px;
       padding: 10px 14px;
-      border-left: 3px solid var(--japanese-red);
+      background-color: var(--soft-pink);
     }
+
     .wish-sender {
       font-weight: 700;
       font-size: 0.85rem;
       color: var(--japanese-red);
       margin-bottom: 2px;
     }
+
     .wish-msg {
       font-size: 0.85rem;
       color: #4a3e40;
@@ -539,6 +599,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .footer-waves {
       width: 100%;
       height: auto;
@@ -548,6 +609,7 @@
       mix-blend-mode: multiply;
       pointer-events: none;
     }
+
     .designer-tag {
       display: inline-flex;
       align-items: center;
@@ -562,6 +624,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Petals background FX -->
@@ -575,16 +638,18 @@
     <!-- HERO SECTION -->
     <header class="hero-section">
       <!-- Falling sakura header banner image -->
-      <img src="/assets/falling_sakura_header.png" alt="Falling Sakura" style="position: absolute; top: 0; left: 0; width: 100%; pointer-events: none; z-index: 1; opacity: 0.95;">
+      <img src="./assets/falling_sakura_header.png" alt="Falling Sakura"
+        style="position: absolute; top: 0; left: 0; width: 100%; pointer-events: none; z-index: 1; opacity: 0.95;">
 
       <div class="badge-wedding">The Wedding Of</div>
 
       <div class="hero-couples">
-        <h1 class="couple-names-lg">Aris &amp; Widya</h1>
+        <h1 class="couple-names-lg">Aris <span class="ampersand">&amp;</span> Widya</h1>
         <div class="ampersand-divider">bersama</div>
-        <h1 class="couple-names-lg">Dimas &amp; Winda</h1>
+        <h1 class="couple-names-lg">Dimas <span class="ampersand">&amp;</span> Winda</h1>
         <div style="margin: 12px auto 6px; max-width: 260px; opacity: 0.95;">
-          <img src="/assets/lineart_gold_hearts.png" alt="Love Yourself Line Art" style="width: 100%; height: auto; display: block; filter: drop-shadow(0 2px 4px rgba(197, 155, 76, 0.25));">
+          <img src="./assets/lineart_gold_hearts.png" alt="Love Yourself Line Art"
+            style="width: 100%; height: auto; display: block; filter: drop-shadow(0 2px 4px rgba(197, 155, 76, 0.25));">
         </div>
         <p class="hero-date">Minggu, 15 November 2026</p>
       </div>
@@ -599,11 +664,14 @@
     <section id="ayat">
       <div class="ayat-card">
         <div style="margin-bottom: 12px;">
-          <img src="/assets/sakura_flower.png" alt="Sakura Flower" style="width: 38px; height: auto; display: inline-block; filter: drop-shadow(0 2px 5px rgba(244, 151, 166, 0.4));">
+          <img src="./assets/sakura_flower.png" alt="Sakura Flower"
+            style="width: 38px; height: auto; display: inline-block; filter: drop-shadow(0 2px 5px rgba(244, 151, 166, 0.4));">
         </div>
         <div class="ayat-bismillah">Bismillahirrahmanirrahim</div>
         <p class="ayat-quote">
-          “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepada-Nya, dan Dia menjadikan di antaramu rasa kasih dan sayang…”
+          “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu
+          sendiri, agar kamu cenderung dan merasa tenteram kepada-Nya, dan Dia menjadikan di antaramu rasa kasih dan
+          sayang…”
         </p>
         <span class="ayat-surah">[ QS. Ar-Rum Ayat: 21 ]</span>
       </div>
@@ -613,12 +681,14 @@
     <section id="mempelai">
       <h2 class="section-title">Pasangan Mempelai</h2>
       <p style="text-align: center; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
-        Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu, Saudara/i sekalian untuk turut hadir dalam acara pernikahan putra-putri kami:
+        Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu, Saudara/i sekalian untuk turut
+        hadir dalam acara pernikahan putra-putri kami:
       </p>
 
       <!-- Foto Ilustrasi Kedua Pasangan Oval Frames -->
       <div style="margin: 0 auto 24px; max-width: 360px; text-align: center;">
-        <img src="/assets/couple_portraits.png" alt="Aris & Widya | Dimas & Winda" style="width: 100%; height: auto; display: block; filter: drop-shadow(0 4px 12px rgba(184, 50, 39, 0.15)); border-radius: 12px;">
+        <img src="./assets/couple_portraits.png" alt="Aris & Widya | Dimas & Winda"
+          style="width: 100%; height: auto; display: block; filter: drop-shadow(0 4px 12px rgba(184, 50, 39, 0.15)); border-radius: 12px;">
       </div>
 
       <!-- Pasangan 1 -->
@@ -665,103 +735,76 @@
     </section>
 
     <!-- WAKTU & HITUNG MUNDUR -->
-    <section id="acara" style="background: linear-gradient(180deg, #faf5f0 0%, #fdedf0 100%); position: relative; overflow: hidden;">
+    <section id="acara"
+      style="background: linear-gradient(180deg, #faf5f0 0%, #fdedf0 100%); position: relative; overflow: hidden;">
       <!-- Pagoda Sakura background accent in bottom right -->
-      <img src="/assets/pagoda_sakura.png" alt="Pagoda Sakura" style="position: absolute; bottom: 0; right: -20px; width: 140px; height: auto; opacity: 0.18; pointer-events: none; z-index: 1;">
+      <img src="./assets/pagoda_sakura.png" alt="Pagoda Sakura"
+        style="position: absolute; bottom: 0; right: -20px; width: 140px; height: auto; opacity: 0.18; pointer-events: none; z-index: 1;">
 
       <div style="position: relative; z-index: 2;">
         <h2 class="section-title">Waktu &amp; Tanggal</h2>
 
-      <div class="countdown-wrap">
-        <div class="count-box">
-          <div class="count-num" id="d-days">00</div>
-          <div class="count-label">Hari</div>
+        <div class="countdown-wrap">
+          <div class="count-box">
+            <div class="count-num" id="d-days">00</div>
+            <div class="count-label">Hari</div>
+          </div>
+          <div class="count-box">
+            <div class="count-num" id="d-hours">00</div>
+            <div class="count-label">Jam</div>
+          </div>
+          <div class="count-box">
+            <div class="count-num" id="d-mins">00</div>
+            <div class="count-label">Menit</div>
+          </div>
+          <div class="count-box">
+            <div class="count-num" id="d-secs">00</div>
+            <div class="count-label">Detik</div>
+          </div>
         </div>
-        <div class="count-box">
-          <div class="count-num" id="d-hours">00</div>
-          <div class="count-label">Jam</div>
-        </div>
-        <div class="count-box">
-          <div class="count-num" id="d-mins">00</div>
-          <div class="count-label">Menit</div>
-        </div>
-        <div class="count-box">
-          <div class="count-num" id="d-secs">00</div>
-          <div class="count-label">Detik</div>
-        </div>
-      </div>
 
-      <!-- Akad Nikah -->
-      <div class="event-card">
-        <div class="event-header">
-          <h3 class="event-title">Akad Nikah</h3>
-          <span class="event-time-badge">08.00 - 10.00 WIB</span>
+        <!-- Akad Nikah -->
+        <div class="event-card">
+          <div class="event-header">
+            <h3 class="event-title">Akad Nikah</h3>
+            <span class="event-time-badge">08.00 - 10.00 WIB</span>
+          </div>
+          <p class="event-desc">
+            <strong>Hari &amp; Tanggal:</strong> Minggu, 15 November 2026<br>
+            Prosesi ijab kabul bersama kedua pasangan mempelai.
+          </p>
         </div>
-        <p class="event-desc">
-          <strong>Hari &amp; Tanggal:</strong> Minggu, 15 November 2026<br>
-          Prosesi ijab kabul bersama kedua pasangan mempelai.
-        </p>
-      </div>
 
-      <!-- Resepsi -->
-      <div class="event-card">
-        <div class="event-header">
-          <h3 class="event-title">Resepsi Pernikahan</h3>
-          <span class="event-time-badge">10.00 - Selesai</span>
+        <!-- Resepsi -->
+        <div class="event-card">
+          <div class="event-header">
+            <h3 class="event-title">Resepsi Pernikahan</h3>
+            <span class="event-time-badge">10.00 - Selesai</span>
+          </div>
+          <p class="event-desc">
+            <strong>Hari &amp; tanggal: </strong>Minggu, 15 November 2026<br>
+            Dengan penuh kebahagiaan, kami mengundang Bapak/Ibu, Saudara/i untuk hadir dan memberikan doa restu pada
+            resepsi pernikahan Aris & Widya.
+          </p>
         </div>
-        <p class="event-desc">
-          <strong>Aris &amp; Widya | Dimas &amp; Winda</strong><br>
-          Ungkapan terimakasih yang mendalam atas kehadiran serta doa restu Bapak/Ibu, Saudara/i sekalian.
-        </p>
       </div>
-    </div>
-  </section>
+    </section>
 
     <!-- LOKASI & MAPS -->
     <section id="lokasi" style="position: relative; overflow: hidden;">
-      <div style="margin: 0 auto 18px; max-width: 100%; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-        <img src="/assets/japanese_landscape.png" alt="Japanese Mountain Landscape" style="width: 100%; height: auto; display: block;">
-      </div>
+      <!-- <div style="margin: 0 auto 18px; max-width: 100%; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+        <img src="./assets/japanese_landscape.png" alt="Japanese Mountain Landscape" style="width: 100%; height: auto; display: block;">
+      </div> -->
       <h2 class="section-title">Lokasi Acara</h2>
       <div class="location-box">
         <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 12px;">
-          Scan QR Code di bawah menggunakan kamera smartphone Anda atau klik tombol untuk membuka rute langsung ke lokasi.
+          Scan QR Code di bawah menggunakan kamera smartphone Anda atau klik tombol untuk membuka rute langsung ke
+          lokasi.
         </p>
 
         <!-- Red QR code vector matching original -->
         <div class="qr-container">
-          <svg viewBox="0 0 100 100" width="100%" height="100%">
-            <!-- QR code matrix pattern simulation in maroon/red -->
-            <rect x="0" y="0" width="100" height="100" fill="#fdf2f4"/>
-            <!-- Top Left Finder -->
-            <rect x="10" y="10" width="24" height="24" rx="3" fill="#b83227"/>
-            <rect x="15" y="15" width="14" height="14" rx="2" fill="#fff"/>
-            <rect x="18" y="18" width="8" height="8" rx="1" fill="#b83227"/>
-            <!-- Top Right Finder -->
-            <rect x="66" y="10" width="24" height="24" rx="3" fill="#b83227"/>
-            <rect x="71" y="15" width="14" height="14" rx="2" fill="#fff"/>
-            <rect x="74" y="18" width="8" height="8" rx="1" fill="#b83227"/>
-            <!-- Bottom Left Finder -->
-            <rect x="10" y="66" width="24" height="24" rx="3" fill="#b83227"/>
-            <rect x="15" y="71" width="14" height="14" rx="2" fill="#fff"/>
-            <rect x="18" y="74" width="8" height="8" rx="1" fill="#b83227"/>
-            <!-- Data Dots -->
-            <rect x="40" y="14" width="6" height="6" fill="#b83227"/>
-            <rect x="52" y="14" width="6" height="6" fill="#b83227"/>
-            <rect x="40" y="26" width="6" height="6" fill="#b83227"/>
-            <rect x="48" y="32" width="6" height="6" fill="#b83227"/>
-            <rect x="14" y="42" width="6" height="6" fill="#b83227"/>
-            <rect x="24" y="48" width="6" height="6" fill="#b83227"/>
-            <rect x="36" y="44" width="12" height="6" fill="#b83227"/>
-            <rect x="54" y="44" width="8" height="8" fill="#b83227"/>
-            <rect x="70" y="42" width="6" height="6" fill="#b83227"/>
-            <rect x="80" y="48" width="8" height="6" fill="#b83227"/>
-            <rect x="42" y="60" width="8" height="8" fill="#b83227"/>
-            <rect x="58" y="64" width="6" height="6" fill="#b83227"/>
-            <rect x="40" y="76" width="8" height="6" fill="#b83227"/>
-            <rect x="70" y="70" width="16" height="16" rx="4" fill="#ee5253"/>
-            <text x="78" y="81" font-size="8" fill="#fff" font-weight="bold" text-anchor="middle">MAPS</text>
-          </svg>
+          <img src="./assets/qr.png" width="200" alt="">
         </div>
 
         <a href="https://maps.google.com" target="_blank" class="btn-maps">
@@ -773,7 +816,8 @@
     <!-- TURUT MENGUNDANG SECTION -->
     <section id="turut-mengundang">
       <div style="text-align: center; margin-bottom: 12px;">
-        <img src="/assets/sakura_branch.png" alt="Sakura Branch" style="width: 100px; height: auto; display: inline-block; opacity: 0.9;">
+        <img src="./assets/sakura_branch.png" alt="Sakura Branch"
+          style="width: 100px; height: auto; display: inline-block; opacity: 0.9;">
       </div>
       <h2 class="section-title">Turut Mengundang</h2>
 
@@ -906,18 +950,26 @@
           </div>
           <div class="form-group">
             <label for="senderMessage">Ucapan &amp; Doa</label>
-            <textarea id="senderMessage" class="form-control" rows="3" placeholder="Tuliskan doa restu untuk kedua pasangan..." required></textarea>
+            <textarea id="senderMessage" class="form-control" rows="3"
+              placeholder="Tuliskan doa restu untuk kedua pasangan..." required></textarea>
           </div>
           <button type="submit" class="btn-submit">Kirim Ucapan &amp; Konfirmasi</button>
         </form>
+      </div>
+    </section>
 
+    <section id="wish">
+      <h2 class="section-title">Doa Restu</h2>
+      <div class="interactive-card">
         <div class="wish-list" id="wishContainer">
           <div class="wish-bubble">
-            <div class="wish-sender">Budi &amp; Keluarga <span style="font-size:0.75rem; color:#4cd137;">• Hadir</span></div>
-            <div class="wish-msg">Selamat menempuh hidup baru untuk Aris &amp; Widya, juga Dimas &amp; Winda! Sakinah mawaddah warahmah selamanya. Aamiin.</div>
+            <div class="wish-sender">Budi &amp; Keluarga
+            </div>
+            <div class="wish-msg">Selamat menempuh hidup baru untuk Aris &amp; Widya, juga Dimas &amp; Winda! Sakinah
+              mawaddah warahmah selamanya. Aamiin.</div>
           </div>
           <div class="wish-bubble">
-            <div class="wish-sender">Dini Anggraini <span style="font-size:0.75rem; color:#4cd137;">• Hadir</span></div>
+            <div class="wish-sender">Dini Anggraini </div>
             <div class="wish-msg">Barakallahu lakum wa baraka alaikum. Bahagia selalu kedua pasangan pengantin! ✨</div>
           </div>
         </div>
@@ -928,16 +980,16 @@
     <footer>
       <p>Kami yang berbahagia,</p>
       <p style="font-family:'Great Vibes', cursive; font-size: 1.8rem; color: var(--japanese-red); margin: 6px 0;">
-        Aris &amp; Widya &bull; Dimas &amp; Winda
+        Aris <span class="ampersand">&amp;</span> Widya <br> Dimas <span class="ampersand">&amp;</span> Winda
       </p>
       <br>
       <div class="designer-tag">
-        <img src="/assets/designer_logo.png" alt="Logo" style="height: 14px; width: auto; vertical-align: middle;">
+        <img src="./assets/designer_logo.png" alt="Logo" style="height: 14px; width: auto; vertical-align: middle;">
         <span>Design By: Dipa &amp; Hasbi</span>
       </div>
 
       <!-- Oriental Waves Decoration -->
-      <img src="/assets/waves_transparent.png" alt="Ombak Oriental" class="footer-waves">
+      <!-- <img src="./assets/waves_illustration.png" alt="Ombak Oriental" class="footer-waves"> -->
     </footer>
 
   </div>
@@ -992,7 +1044,7 @@
         if (data && data.length > 0) {
           wishContainer.innerHTML = data.map(item => `
             <div class="wish-bubble">
-              <div class="wish-sender">${escapeHtml(item.name)} <span style="font-size:0.75rem; color:#4cd137;">• ${escapeHtml(item.presence)}</span></div>
+              <div class="wish-sender">${escapeHtml(item.name)}</div>
               <div class="wish-msg">${escapeHtml(item.message)}</div>
             </div>
           `).join('');
@@ -1014,7 +1066,7 @@
 
     loadPublicWishes();
 
-    wishForm.addEventListener('submit', async function(e) {
+    wishForm.addEventListener('submit', async function (e) {
       e.preventDefault();
       const name = document.getElementById('senderName').value.trim();
       const presence = document.getElementById('presenceStatus').value;
@@ -1058,5 +1110,6 @@
       // Init completed
     });
   </script>
-  </body>
+</body>
+
 </html>
