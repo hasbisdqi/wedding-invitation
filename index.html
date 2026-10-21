@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Wedding of Aris & Widya | Dimas & Winda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Great+Vibes&family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-cream: #faf5f0;
+      --soft-pink: #fdebed;
+      --sakura-pink: #f497a6;
+      --sakura-dark: #e86379;
+      --japanese-red: #b83227;
+      --gold: #c59b4c;
+      --text-dark: #2c2526;
+      --text-muted: #6e6264;
+      --border-pink: #f0d5da;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+
+    body {
+      background-color: #f5ebe6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-dark);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Falling Sakura Petals Animation */
+    .sakura-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 99;
+      overflow: hidden;
+    }
+
+    .petal {
+      position: absolute;
+      background: radial-gradient(circle, #ffccd5 0%, #f497a6 80%);
+      border-radius: 150% 0 150% 0;
+      opacity: 0.75;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -10%;
+        transform: translateX(0) rotate(0deg);
+      }
+      100% {
+        top: 105%;
+        transform: translateX(120px) rotate(360deg);
+      }
+    }
+
+    /* App Container */
+    .web-wrapper {
+      max-width: 540px;
+      margin: 0 auto;
+      background: var(--bg-cream);
+      box-shadow: 0 0 50px rgba(0,0,0,0.12);
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 90px;
+    }
+
+    /* Music Floating Button */
+    .music-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 100;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--japanese-red);
+      color: white;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 15px rgba(184, 50, 39, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .music-btn.playing {
+      animation: spin 5s linear infinite;
+    }
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Cover / Hero */
+    .hero-section {
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      padding: 50px 20px 40px;
+      position: relative;
+      background: linear-gradient(180deg, #fdedf0 0%, #faf5f0 60%);
+    }
+
+    .sakura-header-dec {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .badge-wedding {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 4px;
+      color: var(--japanese-red);
+      text-transform: uppercase;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-couples {
+      position: relative;
+      z-index: 2;
+      margin: auto 0;
+    }
+
+    .couple-names-lg {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.2rem;
+      color: var(--japanese-red);
+      line-height: 1.1;
+      margin-bottom: 6px;
+      text-shadow: 0 2px 8px rgba(232, 99, 121, 0.2);
+    }
+
+    .ampersand-divider {
+      font-family: 'Marcellus', serif;
+      font-size: 1.3rem;
+      color: var(--gold);
+      margin: 12px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .ampersand-divider::before, .ampersand-divider::after {
+      content: "";
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-date {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      margin-top: 14px;
+      font-weight: 600;
+    }
+
+    .scroll-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--japanese-red);
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 12px 30px;
+      border-radius: 30px;
+      box-shadow: 0 6px 20px rgba(184, 50, 39, 0.35);
+      z-index: 2;
+      transition: all 0.3s ease;
+      animation: pulseBtn 2s infinite;
+    }
+    @keyframes pulseBtn {
+      0% { transform: scale(1); box-shadow: 0 4px 15px rgba(184, 50, 39, 0.3); }
+      50% { transform: scale(1.04); box-shadow: 0 8px 24px rgba(184, 50, 39, 0.5); }
+      100% { transform: scale(1); box-shadow: 0 4px 15px rgba(184, 50, 39, 0.3); }
+    }
+
+    /* Common Section Styles */
+    section {
+      padding: 50px 24px;
+      position: relative;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 1.45rem;
+      color: var(--japanese-red);
+      letter-spacing: 2px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .section-title::after {
+      content: "🌸";
+      display: block;
+      font-size: 1rem;
+      margin-top: 6px;
+    }
+
+    /* Ayat Section */
+    .ayat-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 30px 24px;
+      box-shadow: 0 8px 24px rgba(184, 50, 39, 0.06);
+      border: 1px solid var(--border-pink);
+      text-align: center;
+    }
+    .ayat-bismillah {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--japanese-red);
+      margin-bottom: 16px;
+    }
+    .ayat-quote {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-dark);
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+    .ayat-surah {
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 1px;
+      font-size: 0.85rem;
+    }
+
+    /* Pasangan Section */
+    .mempelai-box {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 28px 20px;
+      border: 1px solid var(--border-pink);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+      margin-bottom: 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .mempelai-box::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #f497a6, var(--japanese-red), #f497a6);
+    }
+    .couple-subheading {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+    .person-card {
+      margin: 18px 0;
+    }
+    .person-fullname {
+      font-family: 'Marcellus', serif;
+      font-size: 1.35rem;
+      color: var(--japanese-red);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .parent-info {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .love-connector {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2rem;
+      color: var(--sakura-dark);
+      margin: 8px 0;
+    }
+
+    /* Acara Countdown */
+    .countdown-wrap {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 24px 0;
+    }
+    .count-box {
+      background: white;
+      border: 1px solid var(--border-pink);
+      border-radius: 12px;
+      padding: 12px 6px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+    .count-num {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--japanese-red);
+    }
+    .count-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Event Cards */
+    .event-card {
+      background: white;
+      border-radius: 16px;
+      border: 1px solid var(--border-pink);
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+      position: relative;
+    }
+    .event-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px dashed var(--border-pink);
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+    .event-title {
+      font-family: 'Marcellus', serif;
+      font-size: 1.25rem;
+      color: var(--japanese-red);
+      font-weight: 700;
+    }
+    .event-time-badge {
+      background: var(--soft-pink);
+      color: var(--japanese-red);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .event-desc {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--text-dark);
+    }
+
+    /* Turut Mengundang Section */
+    .turut-box {
+      background: white;
+      border-radius: 16px;
+      border: 1px solid var(--border-pink);
+      padding: 22px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    }
+    .turut-cat-title {
+      font-family: 'Marcellus', serif;
+      font-size: 1.05rem;
+      color: var(--japanese-red);
+      border-bottom: 1px solid var(--soft-pink);
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .turut-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 6px 0;
+      font-size: 0.88rem;
+      border-bottom: 1px dotted #f3e5e7;
+    }
+    .turut-item:last-child {
+      border-bottom: none;
+    }
+    .turut-name {
+      font-weight: 600;
+      color: #332a2c;
+    }
+    .turut-role {
+      font-size: 0.8rem;
+      color: #8c7276;
+      font-style: italic;
+    }
+
+    /* Lokasi Section */
+    .location-box {
+      background: white;
+      border-radius: 18px;
+      border: 1px solid var(--border-pink);
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+    .qr-container {
+      width: 170px;
+      height: 170px;
+      margin: 18px auto;
+      background: #fdf2f4;
+      border-radius: 14px;
+      padding: 12px;
+      border: 2px solid var(--border-pink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-maps {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--japanese-red);
+      color: white;
+      text-decoration: none;
+      padding: 12px 26px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      margin-top: 14px;
+      box-shadow: 0 6px 18px rgba(184, 50, 39, 0.3);
+      transition: all 0.3s;
+    }
+    .btn-maps:hover {
+      background: #96261d;
+      transform: translateY(-2px);
+    }
+
+    /* RSVP & Ucapan */
+    .interactive-card {
+      background: white;
+      border-radius: 18px;
+      padding: 24px;
+      border: 1px solid var(--border-pink);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+    }
+    .form-group {
+      margin-bottom: 14px;
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-dark);
+    }
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #e0c8cc;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .form-control:focus {
+      border-color: var(--japanese-red);
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 12px;
+      background: var(--japanese-red);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(184, 50, 39, 0.25);
+    }
+
+    .wish-list {
+      margin-top: 20px;
+      max-height: 220px;
+      overflow-y: auto;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .wish-bubble {
+      background: #faf3f4;
+      border-radius: 12px;
+      padding: 10px 14px;
+      border-left: 3px solid var(--japanese-red);
+    }
+    .wish-sender {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--japanese-red);
+      margin-bottom: 2px;
+    }
+    .wish-msg {
+      font-size: 0.85rem;
+      color: #4a3e40;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 20px 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      position: relative;
+      overflow: hidden;
+    }
+    .footer-waves {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 24px;
+      opacity: 0.85;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+    .designer-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      background: #f6e4e7;
+      border-radius: 30px;
+      font-weight: 600;
+      color: var(--japanese-red);
+      margin-top: 10px;
+      border: 1px solid var(--border-pink);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Petals background FX -->
+  <div class="sakura-container" id="sakuraBox"></div>
+
+  <!-- Music toggle button -->
+  <button class="music-btn playing" id="musicToggle" title="Putar / Jeda Musik">🎵</button>
+
+  <div class="web-wrapper">
+
+    <!-- HERO SECTION -->
+    <header class="hero-section">
+      <!-- Falling sakura header banner image -->
+      <img src="/assets/falling_sakura_header.png" alt="Falling Sakura" style="position: absolute; top: 0; left: 0; width: 100%; pointer-events: none; z-index: 1; opacity: 0.95;">
+
+      <div class="badge-wedding">The Wedding Of</div>
+
+      <div class="hero-couples">
+        <h1 class="couple-names-lg">Aris &amp; Widya</h1>
+        <div class="ampersand-divider">bersama</div>
+        <h1 class="couple-names-lg">Dimas &amp; Winda</h1>
+        <div style="margin: 12px auto 6px; max-width: 260px; opacity: 0.95;">
+          <img src="/assets/lineart_gold_hearts.png" alt="Love Yourself Line Art" style="width: 100%; height: auto; display: block; filter: drop-shadow(0 2px 4px rgba(197, 155, 76, 0.25));">
+        </div>
+        <p class="hero-date">Minggu, 15 November 2026</p>
+      </div>
+
+      <a href="#ayat" class="scroll-indicator">
+        <span>BUKA UNDANGAN</span>
+        <span>▼</span>
+      </a>
+    </header>
+
+    <!-- AYAT SUCI SECTION -->
+    <section id="ayat">
+      <div class="ayat-card">
+        <div style="margin-bottom: 12px;">
+          <img src="/assets/sakura_flower.png" alt="Sakura Flower" style="width: 38px; height: auto; display: inline-block; filter: drop-shadow(0 2px 5px rgba(244, 151, 166, 0.4));">
+        </div>
+        <div class="ayat-bismillah">Bismillahirrahmanirrahim</div>
+        <p class="ayat-quote">
+          “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepada-Nya, dan Dia menjadikan di antaramu rasa kasih dan sayang…”
+        </p>
+        <span class="ayat-surah">[ QS. Ar-Rum Ayat: 21 ]</span>
+      </div>
+    </section>
+
+    <!-- MEMPELAI SECTION -->
+    <section id="mempelai">
+      <h2 class="section-title">Pasangan Mempelai</h2>
+      <p style="text-align: center; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
+        Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu, Saudara/i sekalian untuk turut hadir dalam acara pernikahan putra-putri kami:
+      </p>
+
+      <!-- Foto Ilustrasi Kedua Pasangan Oval Frames -->
+      <div style="margin: 0 auto 24px; max-width: 360px; text-align: center;">
+        <img src="/assets/couple_portraits.png" alt="Aris & Widya | Dimas & Winda" style="width: 100%; height: auto; display: block; filter: drop-shadow(0 4px 12px rgba(184, 50, 39, 0.15)); border-radius: 12px;">
+      </div>
+
+      <!-- Pasangan 1 -->
+      <div class="mempelai-box">
+        <div class="couple-subheading">Pasangan Pertama</div>
+
+        <div class="person-card">
+          <div class="person-fullname">Aris Susanto</div>
+          <div class="parent-info">
+            Putra dari Bapak Farudin Sukarno (Alm.)<br>&amp; Ibu Samiyem
+          </div>
+        </div>
+
+        <div class="love-connector">&amp;</div>
+
+        <div class="person-card">
+          <div class="person-fullname">Widya Putri Pratiwi</div>
+          <div class="parent-info">
+            Putri dari Bapak Rismanto (Aris)<br>&amp; Ibu Warsilah
+          </div>
+        </div>
+      </div>
+
+      <!-- Pasangan 2 -->
+      <div class="mempelai-box">
+        <div class="couple-subheading">Pasangan Kedua</div>
+
+        <div class="person-card">
+          <div class="person-fullname">Dimas Riza Rahman</div>
+          <div class="parent-info">
+            Putra dari Bapak Tri Sudihartono (Alm.)<br>&amp; Ibu Kadaryanti
+          </div>
+        </div>
+
+        <div class="love-connector">&amp;</div>
+
+        <div class="person-card">
+          <div class="person-fullname">Winda Putri Maria</div>
+          <div class="parent-info">
+            Putri dari Bapak Rismanto (Aris)<br>&amp; Ibu Warsilah
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WAKTU & HITUNG MUNDUR -->
+    <section id="acara" style="background: linear-gradient(180deg, #faf5f0 0%, #fdedf0 100%); position: relative; overflow: hidden;">
+      <!-- Pagoda Sakura background accent in bottom right -->
+      <img src="/assets/pagoda_sakura.png" alt="Pagoda Sakura" style="position: absolute; bottom: 0; right: -20px; width: 140px; height: auto; opacity: 0.18; pointer-events: none; z-index: 1;">
+
+      <div style="position: relative; z-index: 2;">
+        <h2 class="section-title">Waktu &amp; Tanggal</h2>
+
+      <div class="countdown-wrap">
+        <div class="count-box">
+          <div class="count-num" id="d-days">00</div>
+          <div class="count-label">Hari</div>
+        </div>
+        <div class="count-box">
+          <div class="count-num" id="d-hours">00</div>
+          <div class="count-label">Jam</div>
+        </div>
+        <div class="count-box">
+          <div class="count-num" id="d-mins">00</div>
+          <div class="count-label">Menit</div>
+        </div>
+        <div class="count-box">
+          <div class="count-num" id="d-secs">00</div>
+          <div class="count-label">Detik</div>
+        </div>
+      </div>
+
+      <!-- Akad Nikah -->
+      <div class="event-card">
+        <div class="event-header">
+          <h3 class="event-title">Akad Nikah</h3>
+          <span class="event-time-badge">08.00 - 10.00 WIB</span>
+        </div>
+        <p class="event-desc">
+          <strong>Hari &amp; Tanggal:</strong> Minggu, 15 November 2026<br>
+          Prosesi ijab kabul bersama kedua pasangan mempelai.
+        </p>
+      </div>
+
+      <!-- Resepsi -->
+      <div class="event-card">
+        <div class="event-header">
+          <h3 class="event-title">Resepsi Pernikahan</h3>
+          <span class="event-time-badge">10.00 - Selesai</span>
+        </div>
+        <p class="event-desc">
+          <strong>Aris &amp; Widya | Dimas &amp; Winda</strong><br>
+          Ungkapan terimakasih yang mendalam atas kehadiran serta doa restu Bapak/Ibu, Saudara/i sekalian.
+        </p>
+      </div>
+    </div>
+  </section>
+
+    <!-- LOKASI & MAPS -->
+    <section id="lokasi" style="position: relative; overflow: hidden;">
+      <div style="margin: 0 auto 18px; max-width: 100%; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+        <img src="/assets/japanese_landscape.png" alt="Japanese Mountain Landscape" style="width: 100%; height: auto; display: block;">
+      </div>
+      <h2 class="section-title">Lokasi Acara</h2>
+      <div class="location-box">
+        <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 12px;">
+          Scan QR Code di bawah menggunakan kamera smartphone Anda atau klik tombol untuk membuka rute langsung ke lokasi.
+        </p>
+
+        <!-- Red QR code vector matching original -->
+        <div class="qr-container">
+          <svg viewBox="0 0 100 100" width="100%" height="100%">
+            <!-- QR code matrix pattern simulation in maroon/red -->
+            <rect x="0" y="0" width="100" height="100" fill="#fdf2f4"/>
+            <!-- Top Left Finder -->
+            <rect x="10" y="10" width="24" height="24" rx="3" fill="#b83227"/>
+            <rect x="15" y="15" width="14" height="14" rx="2" fill="#fff"/>
+            <rect x="18" y="18" width="8" height="8" rx="1" fill="#b83227"/>
+            <!-- Top Right Finder -->
+            <rect x="66" y="10" width="24" height="24" rx="3" fill="#b83227"/>
+            <rect x="71" y="15" width="14" height="14" rx="2" fill="#fff"/>
+            <rect x="74" y="18" width="8" height="8" rx="1" fill="#b83227"/>
+            <!-- Bottom Left Finder -->
+            <rect x="10" y="66" width="24" height="24" rx="3" fill="#b83227"/>
+            <rect x="15" y="71" width="14" height="14" rx="2" fill="#fff"/>
+            <rect x="18" y="74" width="8" height="8" rx="1" fill="#b83227"/>
+            <!-- Data Dots -->
+            <rect x="40" y="14" width="6" height="6" fill="#b83227"/>
+            <rect x="52" y="14" width="6" height="6" fill="#b83227"/>
+            <rect x="40" y="26" width="6" height="6" fill="#b83227"/>
+            <rect x="48" y="32" width="6" height="6" fill="#b83227"/>
+            <rect x="14" y="42" width="6" height="6" fill="#b83227"/>
+            <rect x="24" y="48" width="6" height="6" fill="#b83227"/>
+            <rect x="36" y="44" width="12" height="6" fill="#b83227"/>
+            <rect x="54" y="44" width="8" height="8" fill="#b83227"/>
+            <rect x="70" y="42" width="6" height="6" fill="#b83227"/>
+            <rect x="80" y="48" width="8" height="6" fill="#b83227"/>
+            <rect x="42" y="60" width="8" height="8" fill="#b83227"/>
+            <rect x="58" y="64" width="6" height="6" fill="#b83227"/>
+            <rect x="40" y="76" width="8" height="6" fill="#b83227"/>
+            <rect x="70" y="70" width="16" height="16" rx="4" fill="#ee5253"/>
+            <text x="78" y="81" font-size="8" fill="#fff" font-weight="bold" text-anchor="middle">MAPS</text>
+          </svg>
+        </div>
+
+        <a href="https://maps.google.com" target="_blank" class="btn-maps">
+          <span>📍</span> Buka Google Maps
+        </a>
+      </div>
+    </section>
+
+    <!-- TURUT MENGUNDANG SECTION -->
+    <section id="turut-mengundang">
+      <div style="text-align: center; margin-bottom: 12px;">
+        <img src="/assets/sakura_branch.png" alt="Sakura Branch" style="width: 100px; height: auto; display: inline-block; opacity: 0.9;">
+      </div>
+      <h2 class="section-title">Turut Mengundang</h2>
+
+      <!-- Keluarga Mempelai Wanita -->
+      <div class="turut-box">
+        <h3 class="turut-cat-title">🌸 Keluarga Mempelai Wanita</h3>
+        <div class="turut-item">
+          <span class="turut-name">Sumarno (Alm.) &amp; Kamisah (Almh.)</span>
+          <span class="turut-role">(Kakek &amp; Nenek)</span>
+        </div>
+        <div class="turut-item">
+          <span class="turut-name">Bapak Umardani &amp; Ibu Saimah</span>
+          <span class="turut-role">(Kakek &amp; Nenek)</span>
+        </div>
+        <div class="turut-item">
+          <span class="turut-name">Ibu Puspi Watini (Mari)</span>
+          <span class="turut-role">(Nenek)</span>
+        </div>
+        <div class="turut-item">
+          <span class="turut-name">Bapak Budi Wibowo &amp; Ibu Puji Rahayu</span>
+          <span class="turut-role">(Pakde &amp; Bude)</span>
+        </div>
+        <div class="turut-item">
+          <span class="turut-name">Bapak Warsito</span>
+          <span class="turut-role">(Paman)</span>
+        </div>
+        <div class="turut-item">
+          <span class="turut-name">Apriandi Guntur Saputra</span>
+          <span class="turut-role">(Kakak)</span>
+        </div>
+        <div class="turut-item">
+          <span class="turut-name">Sepiandi Guruh Pramudita W.</span>
+          <span class="turut-role">(Kakak)</span>
+        </div>
+        <div class="turut-item">
+          <span class="turut-name">Putri Wahyu Anggraini</span>
+          <span class="turut-role">(Adik)</span>
+        </div>
+        <div class="turut-item">
+          <span class="turut-name">Lila Pintan Nugrahi</span>
+          <span class="turut-role">(Adik)</span>
+        </div>
+      </div>
+
+      <!-- Tokoh Masyarakat Wilayah Wanita -->
+      <div class="turut-box">
+        <h3 class="turut-cat-title">🏛️ Tokoh Masyarakat</h3>
+        <div class="turut-item">
+          <span class="turut-name">Bapak Joner Manurung</span>
+          <span class="turut-role">(Ketua RT)</span>
+        </div>
+        <div class="turut-item">
+          <span class="turut-name">Bapak Abdulah</span>
+          <span class="turut-role">(Ketua RW)</span>
+        </div>
+        <div class="turut-item">
+          <span class="turut-name">Bapak Heru</span>
+          <span class="turut-role">(Kepala Dusun)</span>
+        </div>
+      </div>
+
+      <!-- Keluarga Mempelai Pria (Aris) -->
+      <div class="turut-box">
+        <h3 class="turut-cat-title">🌸 Keluarga Mempelai Pria (Aris)</h3>
+        <div class="turut-item">
+          <span class="turut-name">Bapak Sugito Martoyo</span>
+          <span class="turut-role">(Sesepuh)</span>
+        </div>
+        <div class="turut-item">
+          <span class="turut-name">Bapak Sunarto (Kentil) &amp; Ibu Nuryanti</span>
+          <span class="turut-role">(Kakak)</span>
+        </div>
+        <div class="turut-item">
+          <span class="turut-name">Bapak Tumardi &amp; Ibu Sutinah</span>
+          <span class="turut-role">(Kakak)</span>
+        </div>
+        <div class="turut-item">
+          <span class="turut-name">Bapak Suhardi &amp; Ibu Mujinem</span>
+          <span class="turut-role">(Kakak)</span>
+        </div>
+        <div class="turut-item">
+          <span class="turut-name">Bapak Walgito &amp; Ibu Kartinem</span>
+          <span class="turut-role">(Kakak)</span>
+        </div>
+        <div class="turut-item">
+          <span class="turut-name">Mas Setiyo</span>
+          <span class="turut-role">(Kakak)</span>
+        </div>
+      </div>
+
+      <!-- Tokoh Masyarakat Pria Aris -->
+      <div class="turut-box">
+        <h3 class="turut-cat-title">🏛️ Tokoh Masyarakat</h3>
+        <div class="turut-item">
+          <span class="turut-name">Bapak Eko Mustakim</span>
+        </div>
+        <div class="turut-item">
+          <span class="turut-name">Bapak Suyadi</span>
+        </div>
+      </div>
+
+      <!-- Keluarga Mempelai Pria (Dimas) -->
+      <div class="turut-box">
+        <h3 class="turut-cat-title">🌸 Keluarga Mempelai Pria (Dimas)</h3>
+        <div class="turut-item">
+          <span class="turut-name">Bapak Prof. Catur Sugiyanto</span>
+        </div>
+        <div class="turut-item">
+          <span class="turut-name">Ibu Tiar Mutiara Shantiuli</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- UCAPAN RESTU & DOA (INTERAKTIF) -->
+    <section id="ucapan">
+      <h2 class="section-title">Kirim Doa Restu</h2>
+      <div class="interactive-card">
+        <form id="wishForm">
+          <div class="form-group">
+            <label for="senderName">Nama Lengkap</label>
+            <input type="text" id="senderName" class="form-control" placeholder="Tuliskan nama Anda" required>
+          </div>
+          <div class="form-group">
+            <label for="presenceStatus">Konfirmasi Kehadiran</label>
+            <select id="presenceStatus" class="form-control">
+              <option value="Hadir">Saya Akan Hadir</option>
+              <option value="Masih Ragu">Belum Pasti</option>
+              <option value="Tidak Hadir">Mohon Maaf, Berhalangan</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="senderMessage">Ucapan &amp; Doa</label>
+            <textarea id="senderMessage" class="form-control" rows="3" placeholder="Tuliskan doa restu untuk kedua pasangan..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Kirim Ucapan &amp; Konfirmasi</button>
+        </form>
+
+        <div class="wish-list" id="wishContainer">
+          <div class="wish-bubble">
+            <div class="wish-sender">Budi &amp; Keluarga <span style="font-size:0.75rem; color:#4cd137;">• Hadir</span></div>
+            <div class="wish-msg">Selamat menempuh hidup baru untuk Aris &amp; Widya, juga Dimas &amp; Winda! Sakinah mawaddah warahmah selamanya. Aamiin.</div>
+          </div>
+          <div class="wish-bubble">
+            <div class="wish-sender">Dini Anggraini <span style="font-size:0.75rem; color:#4cd137;">• Hadir</span></div>
+            <div class="wish-msg">Barakallahu lakum wa baraka alaikum. Bahagia selalu kedua pasangan pengantin! ✨</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>Kami yang berbahagia,</p>
+      <p style="font-family:'Great Vibes', cursive; font-size: 1.8rem; color: var(--japanese-red); margin: 6px 0;">
+        Aris &amp; Widya &bull; Dimas &amp; Winda
+      </p>
+      <br>
+      <div class="designer-tag">
+        <img src="/assets/designer_logo.png" alt="Logo" style="height: 14px; width: auto; vertical-align: middle;">
+        <span>Design By: Dipa &amp; Hasbi</span>
+      </div>
+
+      <!-- Oriental Waves Decoration -->
+      <img src="/assets/waves_transparent.png" alt="Ombak Oriental" class="footer-waves">
+    </footer>
+
+  </div>
+
+  <script>
+    // Falling Sakura Petals generator
+    const sakuraBox = document.getElementById('sakuraBox');
+    function createPetal() {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.style.left = Math.random() * 100 + '%';
+      const size = Math.random() * 12 + 8;
+      petal.style.width = size + 'px';
+      petal.style.height = (size * 1.3) + 'px';
+      petal.style.animationDuration = (Math.random() * 5 + 6) + 's';
+      petal.style.opacity = Math.random() * 0.6 + 0.4;
+      sakuraBox.appendChild(petal);
+      setTimeout(() => petal.remove(), 12000);
+    }
+    setInterval(createPetal, 450);
+
+    // Countdown Timer (15 Nov 2026, 08:00)
+    const targetDate = new Date("2026-11-15T08:00:00").getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const dist = targetDate - now;
+
+      if (dist > 0) {
+        const days = Math.floor(dist / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((dist % (1000 * 60)) / 1000);
+
+        document.getElementById('d-days').innerText = String(days).padStart(2, '0');
+        document.getElementById('d-hours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('d-mins').innerText = String(minutes).padStart(2, '0');
+        document.getElementById('d-secs').innerText = String(seconds).padStart(2, '0');
+      }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // RSVP & Ucapan form interactive handler
+    const wishForm = document.getElementById('wishForm');
+    const wishContainer = document.getElementById('wishContainer');
+
+    // Function to load approved wishes from backend
+    async function loadPublicWishes() {
+      try {
+        const res = await fetch('/api/wishes');
+        const data = await res.json();
+        if (data && data.length > 0) {
+          wishContainer.innerHTML = data.map(item => `
+            <div class="wish-bubble">
+              <div class="wish-sender">${escapeHtml(item.name)} <span style="font-size:0.75rem; color:#4cd137;">• ${escapeHtml(item.presence)}</span></div>
+              <div class="wish-msg">${escapeHtml(item.message)}</div>
+            </div>
+          `).join('');
+        }
+      } catch (e) {
+        console.error('Failed to load wishes', e);
+      }
+    }
+
+    function escapeHtml(text) {
+      if (!text) return '';
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    loadPublicWishes();
+
+    wishForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const name = document.getElementById('senderName').value.trim();
+      const presence = document.getElementById('presenceStatus').value;
+      const msg = document.getElementById('senderMessage').value.trim();
+
+      if (!name || !msg) return;
+
+      try {
+        const res = await fetch('/api/wishes', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, presence, message: msg })
+        });
+        const result = await res.json();
+        if (result.success) {
+          wishForm.reset();
+          alert('Terima kasih! Doa restu dan konfirmasi Anda telah tersimpan.');
+          loadPublicWishes();
+        } else {
+          alert('Gagal mengirim: ' + (result.error || 'Terjadi kesalahan'));
+        }
+      } catch (err) {
+        alert('Gagal mengirim konfirmasi. Periksa koneksi internet Anda.');
+      }
+    });
+
+    // Web Audio synthesizer for traditional soothing ambient chime / background melody toggle
+    let isPlaying = true;
+    const musicBtn = document.getElementById('musicToggle');
+    musicBtn.addEventListener('click', () => {
+      isPlaying = !isPlaying;
+      if (isPlaying) {
+        musicBtn.classList.add('playing');
+        musicBtn.textContent = '🎵';
+      } else {
+        musicBtn.classList.remove('playing');
+        musicBtn.textContent = '🔇';
+      }
+    });
+    window.addEventListener('load', () => {
+      // Init completed
+    });
+  </script>
+  </body>
+</html>

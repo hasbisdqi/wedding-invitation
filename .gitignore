@@ -1,0 +1,38 @@
+# Node / Bun
+node_modules/
+bun.lock
+bun.lockb
+
+# Environment & database
+.env
+.env.local
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+
+# Screenshots & test artifacts
+*.png
+preview_*.png
+mobile_*.png
+snap_*.png
+long_screenshot.png
+full_page_*.png
+test_loaded_shot.png
+footer_waves_preview.png
+undangan_full_page.png
+mempelai_real_scroll.png
+
+# Keep all assets inside assets directory
+!assets/*.png
+
+# Scripts & temporary tools
+take_*.js
+test_*.js
+inspect_live.js
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

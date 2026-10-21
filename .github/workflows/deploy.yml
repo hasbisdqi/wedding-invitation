@@ -1,0 +1,39 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  lint-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun Runtime
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Validate TypeScript & HTML
+        run: |
+          echo "Checking server syntax..."
+          bun build server.ts --no-bundle > /dev/null
+          echo "Server syntax OK!"
+          test -f index.html || (echo "index.html missing!" && exit 1)
+          test -f dashboard.html || (echo "dashboard.html missing!" && exit 1)
+          echo "Files validation OK!"
+
+  deploy:
+    needs: lint-and-validate
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    steps:
+      - name: Deploy Notification
+        run: |
+          echo "Repository updated on branch ${{ github.ref_name }}."
+          echo "Commit SHA: ${{ github.sha }}"
