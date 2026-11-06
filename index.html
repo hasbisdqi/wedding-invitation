@@ -631,7 +631,8 @@
   <div class="sakura-container" id="sakuraBox"></div>
 
   <!-- Music toggle button -->
-  <button class="music-btn playing" id="musicToggle" title="Putar / Jeda Musik">🎵</button>
+  <button class="music-btn" id="musicToggle" title="Putar / Jeda Musik">🎵</button>
+  <audio id="bgMusic" src="./assets/wedding_music.mp3" loop preload="auto"></audio>
 
   <div class="web-wrapper">
 
@@ -797,17 +798,36 @@
       </div> -->
       <h2 class="section-title">Lokasi Acara</h2>
       <div class="location-box">
-        <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 12px;">
-          Scan QR Code di bawah menggunakan kamera smartphone Anda atau klik tombol untuk membuka rute langsung ke
-          lokasi.
+        <h3 style="font-family: 'Cinzel', serif; font-size: 1.15rem; color: var(--japanese-red); margin-bottom: 6px;">
+          PKS PT. Bumipalma Lestaripersada
+        </h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">
+          Desa Bagan Jaya, Kec. Enok / Tempuling, Kab. Indragiri Hilir, Riau
+        </p>
+
+        <!-- Google Maps Embed -->
+        <div style="width: 100%; border-radius: 14px; overflow: hidden; border: 1px solid var(--border-pink); box-shadow: 0 4px 15px rgba(0,0,0,0.06); margin-bottom: 16px;">
+          <iframe 
+            src="https://maps.google.com/maps?q=-0.597379,102.983146&hl=id&z=15&output=embed" 
+            width="100%" 
+            height="260" 
+            style="border:0; display:block;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">
+          Scan QR Code di bawah atau klik tombol untuk petunjuk rute navigasi langsung.
         </p>
 
         <!-- Red QR code vector matching original -->
         <div class="qr-container">
-          <img src="./assets/qr.png" width="200" alt="">
+          <img src="./assets/qr.png" width="200" alt="QR Lokasi">
         </div>
 
-        <a href="https://maps.google.com" target="_blank" class="btn-maps">
+        <a href="https://www.google.com/maps/search/?api=1&query=-0.597379,102.983146" target="_blank" class="btn-maps">
           <span>📍</span> Buka Google Maps
         </a>
       </div>
@@ -1092,21 +1112,61 @@
       }
     });
 
-    // Web Audio synthesizer for traditional soothing ambient chime / background melody toggle
-    let isPlaying = true;
+    // Background Music Audio Controller
+    const audio = document.getElementById('bgMusic');
     const musicBtn = document.getElementById('musicToggle');
-    musicBtn.addEventListener('click', () => {
-      isPlaying = !isPlaying;
-      if (isPlaying) {
+    let isPlaying = false;
+
+    function playAudio() {
+      audio.play().then(() => {
+        isPlaying = true;
         musicBtn.classList.add('playing');
         musicBtn.textContent = '🎵';
-      } else {
+      }).catch(err => {
+        console.log('Audio autoplay prevented:', err);
+        isPlaying = false;
         musicBtn.classList.remove('playing');
         musicBtn.textContent = '🔇';
+      });
+    }
+
+    function pauseAudio() {
+      audio.pause();
+      isPlaying = false;
+      musicBtn.classList.remove('playing');
+      musicBtn.textContent = '🔇';
+    }
+
+    musicBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isPlaying) {
+        pauseAudio();
+      } else {
+        playAudio();
       }
     });
+
+    // Auto-play on first user interaction anywhere on page or click Buka Undangan
+    const unlockAudio = () => {
+      if (!isPlaying) {
+        playAudio();
+      }
+      document.removeEventListener('click', unlockAudio);
+      document.removeEventListener('touchstart', unlockAudio);
+    };
+    document.addEventListener('click', unlockAudio);
+    document.addEventListener('touchstart', unlockAudio);
+
+    const btnBuka = document.querySelector('.scroll-indicator');
+    if (btnBuka) {
+      btnBuka.addEventListener('click', () => {
+        if (!isPlaying) playAudio();
+      });
+    }
+
     window.addEventListener('load', () => {
-      // Init completed
+      // Attempt autoplay if permitted
+      playAudio();
     });
   </script>
 </body>
