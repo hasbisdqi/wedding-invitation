@@ -549,6 +549,196 @@
       border-color: var(--japanese-red);
     }
 
+    /* Custom Dropdown / Select */
+    .custom-select-wrap {
+      position: relative;
+      user-select: none;
+    }
+    .custom-select-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #e0c8cc;
+      background: #ffffff;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .custom-select-trigger:hover {
+      border-color: var(--sakura-dark);
+    }
+    .custom-select-wrap.open .custom-select-trigger {
+      border-color: var(--japanese-red);
+      box-shadow: 0 0 0 3px rgba(184, 50, 39, 0.12);
+    }
+    .custom-select-arrow {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      transition: transform 0.25s ease;
+    }
+    .custom-select-wrap.open .custom-select-arrow {
+      transform: rotate(180deg);
+      color: var(--japanese-red);
+    }
+    .custom-select-options {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid var(--border-pink);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      z-index: 50;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .custom-select-wrap.open .custom-select-options {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .custom-select-option {
+      padding: 11px 14px;
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background 0.15s ease;
+    }
+    .custom-select-option:hover {
+      background: var(--soft-pink);
+    }
+    .custom-select-option.selected {
+      background: #fde2e6;
+      color: var(--japanese-red);
+      font-weight: 600;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .status-dot.hadir { background: #2ecc71; box-shadow: 0 0 8px rgba(46, 204, 113, 0.5); }
+    .status-dot.ragu { background: #f39c12; box-shadow: 0 0 8px rgba(243, 156, 18, 0.5); }
+    .status-dot.tidak { background: #95a5a6; }
+
+    /* Modal Pop-up Animasi */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(44, 37, 38, 0.65);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 24px;
+      padding: 32px 24px 28px;
+      text-align: center;
+      position: relative;
+      border: 1px solid var(--border-pink);
+      box-shadow: 0 20px 45px rgba(184, 50, 39, 0.18);
+      transform: scale(0.85) translateY(20px);
+      transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .modal-overlay.active .modal-card {
+      transform: scale(1) translateY(0);
+    }
+    .modal-icon-wrap {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fde2e6 0%, #fcd2d8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 8px 20px rgba(232, 99, 121, 0.25);
+    }
+    .modal-icon-wrap.error {
+      background: #fee2e2;
+      box-shadow: 0 8px 20px rgba(239, 68, 68, 0.2);
+    }
+    .modal-icon-svg {
+      width: 38px;
+      height: 38px;
+    }
+    .modal-icon-wrap svg circle,
+    .modal-icon-wrap svg path {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: drawCheck 0.6s 0.2s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+    }
+    @keyframes drawCheck {
+      100% { stroke-dashoffset: 0; }
+    }
+    .modal-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.28rem;
+      color: var(--japanese-red);
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+    .modal-title.error {
+      color: #dc2626;
+    }
+    .modal-message {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .modal-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 13px 20px;
+      background: linear-gradient(135deg, var(--japanese-red) 0%, var(--sakura-dark) 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(184, 50, 39, 0.3);
+      transition: all 0.2s ease;
+    }
+    .modal-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(184, 50, 39, 0.4);
+    }
+    .modal-btn:active {
+      transform: translateY(0);
+    }
+
     .btn-submit {
       width: 100%;
       padding: 12px;
@@ -961,12 +1151,31 @@
             <input type="text" id="senderName" class="form-control" placeholder="Tuliskan nama Anda" required>
           </div>
           <div class="form-group">
-            <label for="presenceStatus">Konfirmasi Kehadiran</label>
-            <select id="presenceStatus" class="form-control">
-              <option value="Hadir">Saya Akan Hadir</option>
-              <option value="Masih Ragu">Belum Pasti</option>
-              <option value="Tidak Hadir">Mohon Maaf, Berhalangan</option>
-            </select>
+            <label>Konfirmasi Kehadiran</label>
+            <input type="hidden" id="presenceStatus" value="Hadir">
+            <div class="custom-select-wrap" id="presenceDropdown">
+              <div class="custom-select-trigger" id="presenceTrigger">
+                <span style="display:flex; align-items:center; gap:8px;">
+                  <span class="status-dot hadir" id="selectedDot"></span>
+                  <span id="selectedPresenceText">Saya Akan Hadir</span>
+                </span>
+                <span class="custom-select-arrow">▼</span>
+              </div>
+              <div class="custom-select-options">
+                <div class="custom-select-option selected" data-value="Hadir">
+                  <span class="status-dot hadir"></span>
+                  <span>Saya Akan Hadir</span>
+                </div>
+                <div class="custom-select-option" data-value="Masih Ragu">
+                  <span class="status-dot ragu"></span>
+                  <span>Belum Pasti</span>
+                </div>
+                <div class="custom-select-option" data-value="Tidak Hadir">
+                  <span class="status-dot tidak"></span>
+                  <span>Mohon Maaf, Berhalangan</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="form-group">
             <label for="senderMessage">Ucapan &amp; Doa</label>
@@ -1011,6 +1220,21 @@
       <!-- Oriental Waves Decoration -->
     </footer>
 
+  </div>
+
+  <!-- Animated Feedback Modal -->
+  <div class="modal-overlay" id="statusModal">
+    <div class="modal-card">
+      <div class="modal-icon-wrap" id="modalIconWrap">
+        <svg class="modal-icon-svg" id="modalIconSvg" viewBox="0 0 52 52" fill="none">
+          <circle cx="26" cy="26" r="24" stroke="var(--japanese-red)" stroke-width="3" fill="none"/>
+          <path d="M16 26l7 7 14-14" stroke="var(--japanese-red)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3 class="modal-title" id="modalTitle">Terima Kasih</h3>
+      <p class="modal-message" id="modalMessage">Doa restu dan konfirmasi kehadiran Anda telah berhasil tersimpan.</p>
+      <button type="button" class="modal-btn" id="modalCloseBtn">Tutup</button>
+    </div>
   </div>
 
   <script>
@@ -1085,6 +1309,79 @@
 
     loadPublicWishes();
 
+    // Custom Dropdown Interactive Logic
+    const presenceDropdown = document.getElementById('presenceDropdown');
+    const presenceTrigger = document.getElementById('presenceTrigger');
+    const presenceInput = document.getElementById('presenceStatus');
+    const selectedPresenceText = document.getElementById('selectedPresenceText');
+    const selectedDot = document.getElementById('selectedDot');
+    const customOptions = presenceDropdown.querySelectorAll('.custom-select-option');
+
+    presenceTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      presenceDropdown.classList.toggle('open');
+    });
+
+    customOptions.forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        customOptions.forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+
+        const val = opt.getAttribute('data-value');
+        presenceInput.value = val;
+
+        const dotClass = opt.querySelector('.status-dot').className;
+        selectedDot.className = dotClass;
+        selectedPresenceText.textContent = opt.querySelector('span:last-child').textContent;
+
+        presenceDropdown.classList.remove('open');
+      });
+    });
+
+    // Close dropdown on outside click
+    document.addEventListener('click', () => {
+      presenceDropdown.classList.remove('open');
+    });
+
+    // Modal Controller
+    const statusModal = document.getElementById('statusModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalMessage = document.getElementById('modalMessage');
+    const modalIconWrap = document.getElementById('modalIconWrap');
+    const modalIconSvg = document.getElementById('modalIconSvg');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+    function showModal(isSuccess, title, message) {
+      if (isSuccess) {
+        modalIconWrap.className = 'modal-icon-wrap';
+        modalTitle.className = 'modal-title';
+        modalIconSvg.innerHTML = `
+          <circle cx="26" cy="26" r="24" stroke="var(--japanese-red)" stroke-width="3" fill="none"/>
+          <path d="M16 26l7 7 14-14" stroke="var(--japanese-red)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        `;
+      } else {
+        modalIconWrap.className = 'modal-icon-wrap error';
+        modalTitle.className = 'modal-title error';
+        modalIconSvg.innerHTML = `
+          <circle cx="26" cy="26" r="24" stroke="#dc2626" stroke-width="3" fill="none"/>
+          <path d="M18 18l16 16M34 18L18 34" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
+        `;
+      }
+      modalTitle.textContent = title;
+      modalMessage.textContent = message;
+      statusModal.classList.add('active');
+    }
+
+    function closeModal() {
+      statusModal.classList.remove('active');
+    }
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    statusModal.addEventListener('click', (e) => {
+      if (e.target === statusModal) closeModal();
+    });
+
     wishForm.addEventListener('submit', async function (e) {
       e.preventDefault();
       const name = document.getElementById('senderName').value.trim();
@@ -1092,6 +1389,11 @@
       const msg = document.getElementById('senderMessage').value.trim();
 
       if (!name || !msg) return;
+
+      const submitBtn = wishForm.querySelector('.btn-submit');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Mengirim...';
 
       try {
         const res = await fetch('/api/wishes', {
@@ -1102,13 +1404,25 @@
         const result = await res.json();
         if (result.success) {
           wishForm.reset();
-          alert('Terima kasih! Doa restu dan konfirmasi Anda telah tersimpan.');
+          // Reset custom select to default
+          presenceInput.value = 'Hadir';
+          selectedDot.className = 'status-dot hadir';
+          selectedPresenceText.textContent = 'Saya Akan Hadir';
+          customOptions.forEach((o, idx) => {
+            if (idx === 0) o.classList.add('selected');
+            else o.classList.remove('selected');
+          });
+
+          showModal(true, 'Terima Kasih!', 'Doa restu dan konfirmasi kehadiran Anda telah berhasil tersimpan dengan baik.');
           loadPublicWishes();
         } else {
-          alert('Gagal mengirim: ' + (result.error || 'Terjadi kesalahan'));
+          showModal(false, 'Gagal Mengirim', result.error || 'Terjadi kesalahan saat menyimpan ucapan Anda.');
         }
       } catch (err) {
-        alert('Gagal mengirim konfirmasi. Periksa koneksi internet Anda.');
+        showModal(false, 'Koneksi Terputus', 'Gagal mengirim konfirmasi. Silakan periksa koneksi internet Anda dan coba lagi.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
       }
     });
 
